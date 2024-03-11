@@ -9,7 +9,7 @@ from torchvision.utils import save_image
 from diffusers.models import AutoencoderKL
 
 from diffusion import create_diffusion
-from models_dis import DiS_models 
+from models_drwkv import DRWKV_models 
 
 
 
@@ -21,13 +21,13 @@ def main(args):
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     if args.latent_space == True: 
-        model = DiS_models[args.model](
+        model = DRWKV_models[args.model](
             img_size=args.image_size // 8,
             num_classes=args.num_classes,
             channels=4,
         ) 
     else:
-        model = DiS_models[args.model](
+        model = DRWKV_models[args.model](
             img_size=args.image_size,
             num_classes=args.num_classes,
             channels=3,
@@ -81,14 +81,13 @@ def main(args):
 
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser() 
-    parser.add_argument("--model", type=str, choices=list(DiS_models.keys()), default="DiS-H/2")
+    parser.add_argument("--model", type=str, choices=list(DRWKV_models.keys()), default="DRWKV-L/2")
     parser.add_argument("--image-size", type=int, choices=[32, 64, 256, 512], default=64)
-    parser.add_argument("--num-classes", type=int, default=1000)
+    parser.add_argument("--num-classes", type=int, default=-1)
     parser.add_argument("--cfg-scale", type=float, default=1.5) 
     parser.add_argument("--num-sampling-steps", type=int, default=250) 
     parser.add_argument("--seed", type=int, default=42)
-    # parser.add_argument("--ckpt", type=str, default="/TrainData/Multimodal/zhengcong.fei/dis/results/DiS-H-2-imagenet-class-cond-256/checkpoints/0010000.pt",) 
-    parser.add_argument("--ckpt", type=str, default="/TrainData/Multimodal/zhengcong.fei/dis/results/DiS-H-2-imagenet-class-cond-64/checkpoints/0040000.pt",) 
+    parser.add_argument("--ckpt", type=str, default="/TrainData/Multimodal/zhengcong.fei/diff-rwkv/results/DRWKV-M-2-celeba-uncond-64/checkpoints/0044000.pt",) 
     parser.add_argument('--latent_space', type=bool, default=False,) 
     parser.add_argument('--vae_path', type=str, default='/TrainData/Multimodal/zhengcong.fei/dis/vae') 
     args = parser.parse_args()

@@ -767,7 +767,68 @@ class DiffRWKVModel(nn.Module):
         return torch.cat([eps, rest], dim=1)
 
 
+
+def drwkv_s_2(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=2,
+        embed_dim=384,
+        depth=13,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_s_4(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=4,
+        embed_dim=384,
+        depth=13,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_b_2(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=2,
+        embed_dim=384,
+        depth=25,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_b_4(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=4,
+        embed_dim=384,
+        depth=25,
+        **kwargs
+    )
+    return model 
+
+
 def drwkv_m_2(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=2,
+        embed_dim=512,
+        depth=25,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_m_4(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=4,
+        embed_dim=512,
+        depth=25,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_l_2(**kwargs): 
     model = DiffRWKVModel(
         patch_size=2,
         embed_dim=768,
@@ -777,6 +838,41 @@ def drwkv_m_2(**kwargs):
     return model 
 
 
+def drwkv_l_4(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=4,
+        embed_dim=768,
+        depth=37,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_h_2(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=2,
+        embed_dim=1024,
+        depth=37,
+        **kwargs
+    )
+    return model 
+
+
+def drwkv_h_4(**kwargs): 
+    model = DiffRWKVModel(
+        patch_size=4,
+        embed_dim=1024,
+        depth=37,
+        **kwargs
+    )
+    return model 
+
+
+
 DRWKV_models = {
-    "DRWKV-M/2": drwkv_m_2, 
+    "DRWKV-S/2": drwkv_s_2, "DRWKV-S/4": drwkv_s_4, 
+    "DRWKV-B/2": drwkv_b_2, "DRWKV-B/4": drwkv_b_4, 
+    "DRWKV-M/2": drwkv_m_2, "DRWKV-M/4": drwkv_m_4, 
+    "DRWKV-L/2": drwkv_l_2, "DRWKV-L/4": drwkv_l_4, 
+    "DRWKV-H/2": drwkv_h_2, "DRWKV-H/4": drwkv_h_4, 
 }
