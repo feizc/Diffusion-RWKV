@@ -1,0 +1,15 @@
+torchrun --nnodes=1 --nproc_per_node=8 train.py \
+--model DRWKV-L/2 \
+--dataset-type celeba \
+--data-path /TrainData/Multimodal/zhengcong.fei/dis/data/CelebA \
+--image-size 64 \
+--resize-only True \
+--global-batch-size 128 \
+--accum_iter 8 \
+--epochs 30 \
+--lr 1e-5 \
+--warmup_epochs 0 \
+--eval_steps 2000 \
+--ckpt-every 4000 \
+--global-seed 12433 \
+--resume /TrainData/Multimodal/zhengcong.fei/diff-rwkv/results/DRWKV-M-2-celeba-uncond-64/checkpoints/0044000.pt

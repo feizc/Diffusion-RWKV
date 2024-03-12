@@ -229,6 +229,8 @@ def main(args):
                     opt.zero_grad()
                 
                 loss.backward()
+
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 opt.step()
                 update_ema(ema, model.module)
 
@@ -272,7 +274,7 @@ def main(args):
                             eval_samples = diffusion_eval.p_sample_loop(
                                 ema.forward_with_cfg, z.shape, z, clip_denoised=False, model_kwargs=None, progress=True, device=device
                             )
-                            
+
                         elif args.task_type == 'class-cond':
                             n = 16
                             class_labels=[]
