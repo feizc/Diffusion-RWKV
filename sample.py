@@ -14,7 +14,7 @@ from models_drwkv import DRWKV_models
 
 
 def main(args):
-    print("Sample images from a trained DiS.")
+    print("Sample images from a trained Diffusion-RWKV.")
     # Setup PyTorch:
     torch.manual_seed(args.seed)
     torch.set_grad_enabled(False) 
@@ -81,15 +81,15 @@ def main(args):
 
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser() 
-    parser.add_argument("--model", type=str, choices=list(DRWKV_models.keys()), default="DRWKV-L/2")
-    parser.add_argument("--image-size", type=int, choices=[32, 64, 256, 512], default=64)
-    parser.add_argument("--num-classes", type=int, default=-1)
+    parser.add_argument("--model", type=str, choices=list(DRWKV_models.keys()), default="DRWKV-H/2")
+    parser.add_argument("--image-size", type=int, choices=[32, 64, 256, 512], default=256)
+    parser.add_argument("--num-classes", type=int, default=1000)
     parser.add_argument("--cfg-scale", type=float, default=1.5) 
     parser.add_argument("--num-sampling-steps", type=int, default=250) 
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--ckpt", type=str, default="/TrainData/Multimodal/zhengcong.fei/diff-rwkv/results/DRWKV-M-2-celeba-uncond-64/checkpoints/0044000.pt",) 
-    parser.add_argument('--latent_space', type=bool, default=False,) 
-    parser.add_argument('--vae_path', type=str, default='/TrainData/Multimodal/zhengcong.fei/dis/vae') 
+    parser.add_argument("--ckpt", type=str, default="/maindata/data/shared/multimodal/zhengcong.fei/code/diff-rwkv/results/DRWKV-H-2-imagenet-class-cond-256/checkpoints/0075000.pt",) 
+    parser.add_argument('--latent_space', type=bool, default=True,) 
+    parser.add_argument('--vae_path', type=str, default='/maindata/data/shared/multimodal/zhengcong.fei/ckpts/playground/vae') 
     args = parser.parse_args()
 
     main(args)
