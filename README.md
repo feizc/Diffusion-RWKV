@@ -1,7 +1,7 @@
 ## Diffusion-RWKV: Scaling RWKV-Like Architectures for Diffusion Models <br><sub>Official PyTorch Implementation</sub>
 
 This repo contains PyTorch model definitions, pre-trained weights and training/sampling code for our paper scalable diffusion models with RWKV-like architectures (Diffusion-RWKV). 
-It adopts a series of architectures adapted from the RWKV model used in the NLP, with requisite modifications tailored for diffusion model applied to image generation tasks. 
+It builds a series of architectures adapted from the RWKV model used in the NLP, with requisite modifications tailored for diffusion model applied to image generation tasks. 
 
 ![Diffusion-RWKV framework](visuals/framework.jpg) 
 
