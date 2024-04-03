@@ -54,8 +54,7 @@ There are several additional options; see [`train.py`](train.py) for details.
 All experiments in our work of training script can be found in file direction `script`. 
 
 
-For convenience, the pre-trained DiS models can be downloaded in  
-[huggingface](https://huggingface.co/feizhengcong/Diffusion-RWKV).
+For convenience, the pre-trained DiS models can be downloaded in [huggingface](https://huggingface.co/feizhengcong/Diffusion-RWKV).
 
 ### 3. Evaluation
 
