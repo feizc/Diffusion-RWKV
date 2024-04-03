@@ -40,10 +40,38 @@ def test_cifar10():
 
 
 def test_imagenet1k(): 
-    data_path = '/TrainData/Multimodal/public/datasets/ImageNet/train' 
+    data_path = '/maindata/data/shared/multimodal/public/dataset_img_only/imagenet/data/train' 
     import torchvision.datasets as datasets
     dataset_train = datasets.ImageFolder(data_path) 
     print(dataset_train[0])
+
+
+def imagenet_formation():
+    data_path = '/maindata/data/shared/multimodal/public/dataset_img_only/imagenet/data/train_org'
+    from tqdm import tqdm 
+    import os 
+    import shutil 
+    img_list = os.listdir(data_path) 
+    
+    print(len(img_list)) 
+    class_list = []
+    for img in img_list: 
+        class_name = img.split('_')[0]
+        class_list.append(class_name)
+    class_list = set(class_list)
+    print(len(class_list))
+
+    target_path = '/maindata/data/shared/multimodal/public/dataset_img_only/imagenet/data/train'
+    for class_name in class_list: 
+        directory = os.path.join(target_path, class_name)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+    
+    for img in tqdm(img_list): 
+        class_name = img.split('_')[0]
+        src_path = os.path.join(data_path, img)
+        tgt_path = os.path.join(target_path, class_name, img)
+        shutil.move(src_path, tgt_path)
 
 
 

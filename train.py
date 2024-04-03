@@ -311,14 +311,14 @@ def main(args):
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-path", type=str, required=True)
-    parser.add_argument("--results-dir", type=str, default="/TrainData/Multimodal/zhengcong.fei/diff-rwkv/results")
+    parser.add_argument("--results-dir", type=str, default="/maindata/data/shared/multimodal/zhengcong.fei/code/diff-rwkv/results")
     parser.add_argument("--task-type", type=str, choices=['uncond', 'class-cond', 'text-cond'], default='uncond')
     parser.add_argument("--dataset-type", type=str, choices=['cifar-10', 'imagenet', 'celeba'], default='cifar-10')
     parser.add_argument("--resize-only", type=bool, default=False)
     parser.add_argument("--num-classes", type=int, default=-1)
     parser.add_argument("--resume", type=str, default=None)
     
-    parser.add_argument("--model", type=str, choices=list(DRWKV_models.keys()), default="DiS-L/2")
+    parser.add_argument("--model", type=str, choices=list(DRWKV_models.keys()), default="DRWKV-M/2")
     parser.add_argument("--image-size", type=int, choices=[256, 512, 64, 32], default=32)
     parser.add_argument("--num-workers", type=int, default=8)
     parser.add_argument("--epochs", type=int, default=1000)
@@ -333,6 +333,6 @@ if __name__ == "__main__":
     parser.add_argument('--eval_steps', default=1000, type=int,) 
 
     parser.add_argument('--latent_space', type=bool, default=False) 
-    parser.add_argument('--vae_path', type=str, default='/TrainData/Multimodal/zhengcong.fei/dis/vae') 
+    parser.add_argument('--vae_path', type=str, default='/maindata/data/shared/multimodal/zhengcong.fei/ckpts/playground/vae') 
     args = parser.parse_args()
     main(args)
