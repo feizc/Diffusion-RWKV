@@ -1,7 +1,9 @@
-## Diffusion-RWKV: Scalable Diffusion Models with RWKV-like Architectures <br><sub>Official PyTorch Implementation</sub>
+## Diffusion-RWKV: Scaling RWKV-Like Architectures for Diffusion Models <br><sub>Official PyTorch Implementation</sub>
 
-This repo contains PyTorch model definitions, pre-trained weights and training/sampling code for our paper scalable diffusion models with RWKV-like architectures (Diffusion-RWKV).
-[models](https://huggingface.co/feizhengcong/Diffusion-RWKV). 
+This repo contains PyTorch model definitions, pre-trained weights and training/sampling code for our paper scalable diffusion models with RWKV-like architectures (Diffusion-RWKV). You can download  
+[ckpts](https://huggingface.co/feizhengcong/Diffusion-RWKV) in huggingface. 
+
+
 
 
 ### 1. Environments
