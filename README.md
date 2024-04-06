@@ -1,6 +1,6 @@
 ## Diffusion-RWKV: Scaling RWKV-Like Architectures for Diffusion Models <br><sub>Official PyTorch Implementation</sub>
 
-This repo contains PyTorch model definitions, pre-trained weights and training/sampling code for our paper scalable diffusion models with RWKV-like architectures (Diffusion-RWKV). 
+This repo contains PyTorch model definitions, pre-trained weights and training/sampling code for our paper scalable diffusion models with RWKV-like architectures, named Diffusion-RWKV. 
 It builds a series of architectures adapted from the RWKV model used in the NLP, with requisite modifications tailored for diffusion model applied to image generation tasks. 
 
 ![Diffusion-RWKV framework](visuals/framework.jpg) 
@@ -49,12 +49,11 @@ torchrun --nnodes=1 --nproc_per_node=N train.py \
 ```
 
 
-
 There are several additional options; see [`train.py`](train.py) for details. 
-All experiments in our work of training script can be found in file direction `script`. 
+Experiments for training script can be found in the file direction `script`. 
 
+For convenience, the pre-trained Diffusion-RWKV models can be directly downloaded in [huggingface](https://huggingface.co/feizhengcong/Diffusion-RWKV).
 
-For convenience, the pre-trained DiS models can be downloaded in [huggingface](https://huggingface.co/feizhengcong/Diffusion-RWKV).
 
 ### 3. Evaluation
 
@@ -80,6 +79,7 @@ python sample.py \
   journal={arXiv preprint},
 }
 ```
+
 ### 5. Acknowledgments
 
 The codebase is based on the awesome [DiT](https://github.com/facebookresearch/DiT), [RWKV](https://github.com/BlinkDL/RWKV-LM), [DiS](https://github.com/feizc/DiS), and [Vision-RWKV](https://github.com/OpenGVLab/Vision-RWKV) repos. 
