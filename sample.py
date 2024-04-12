@@ -88,7 +88,7 @@ if __name__ == "__main__":
     parser.add_argument("--num-sampling-steps", type=int, default=250) 
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--ckpt", type=str, default="/maindata/data/shared/multimodal/zhengcong.fei/code/diff-rwkv/results/DRWKV-H-2-imagenet-class-cond-256/checkpoints/0040000.pt",) 
-    parser.add_argument('--latent_space', type=bool, default=True,) 
+    parser.add_argument('--latent_space', type=bool, default=False,) 
     parser.add_argument('--vae_path', type=str, default='/maindata/data/shared/multimodal/zhengcong.fei/ckpts/playground/vae') 
     args = parser.parse_args()
 
